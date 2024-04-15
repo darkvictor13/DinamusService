@@ -10,5 +10,5 @@ services:
     volumes:
       - ./db-data/:/var/lib/postgresql/data/
     env_file:
-      - .env
+      - ../.env
     restart: 'no'
