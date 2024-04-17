@@ -1,3 +1,5 @@
+import ServiceTable from "@/components/serviceTable";
+
 export default function Home() {
-  return <div>Signin</div>;
+  return <ServiceTable />;
 }
