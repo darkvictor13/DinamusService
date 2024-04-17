@@ -1,4 +1,10 @@
-import { IsString } from 'class-validator';
+import {
+  IsBoolean,
+  IsNumber,
+  IsOptional,
+  IsPhoneNumber,
+  IsString,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsString()
@@ -6,4 +12,15 @@ export class CreateUserDto {
 
   @IsString()
   lastName: string;
+
+  @IsString()
+  @IsPhoneNumber('BR')
+  phoneNumber: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isAdmin?: boolean;
+
+  @IsNumber()
+  churchId: number;
 }

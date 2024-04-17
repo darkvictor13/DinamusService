@@ -11,7 +11,16 @@ export class UserService {
   create(createUserDto: CreateUserDto): Promise<User> {
     return this.prismaService.user.create({
       data: {
-        ...createUserDto,
+        firstName: createUserDto.firstName,
+        lastName: createUserDto.lastName,
+        phoneNumber: createUserDto.phoneNumber,
+        isAdmin: createUserDto.isAdmin,
+        passwordHash: 'test',
+        church: {
+          connect: {
+            id: createUserDto.churchId,
+          },
+        },
       },
     });
   }
