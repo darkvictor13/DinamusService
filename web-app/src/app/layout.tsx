@@ -3,8 +3,8 @@ import { Box, ThemeProvider } from "@mui/material";
 import theme from "./theme";
 import DinamusCacheProvider from "../providers/dinamusCacheProvider";
 import Header from "@/components/header";
-import { MinistrySelectionProvider } from "@/providers/ministrySelectionProvider";
-import { IsClientProvider } from "@/providers/isClientProvider";
+import IsClientProvider from "@/providers/isClientProvider";
+import MinistrySelectionProvider from "@/providers/ministrySelectionProvider";
 
 export const metadata = {
   title: "Dinamus service",

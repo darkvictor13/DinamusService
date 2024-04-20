@@ -3,11 +3,11 @@ import { createContext, useEffect, useState } from "react";
 
 export const IsClientContext = createContext<boolean>(false);
 
-export const IsClientProvider = ({
+export default function IsClientProvider({
   children,
 }: {
   children: React.ReactNode;
-}) => {
+}) {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => setIsClient(true), []);
   return (
@@ -15,4 +15,4 @@ export const IsClientProvider = ({
       {children}
     </IsClientContext.Provider>
   );
-};
+}

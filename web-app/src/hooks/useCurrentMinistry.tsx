@@ -2,7 +2,7 @@
 import { MinistrySelectionContext } from "@/providers/ministrySelectionProvider";
 import { useContext } from "react";
 
-export const useCurrentMinistry = () => {
+export default function useCurrentMinistry() {
   const context = useContext(MinistrySelectionContext);
   if (!context) {
     throw new Error(
@@ -10,4 +10,4 @@ export const useCurrentMinistry = () => {
     );
   }
   return context;
-};
+}

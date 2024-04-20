@@ -22,11 +22,11 @@ interface MinistrySelectionContextValue {
 export const MinistrySelectionContext =
   createContext<MinistrySelectionContextValue | null>(null);
 
-export const MinistrySelectionProvider = ({
+export default function MinistrySelectionProvider({
   children,
 }: {
   children: ReactNode;
-}) => {
+}) {
   const isClient = useIsClient();
   const [selectedMinistry, setSelectedMinistry] = useState<Ministry | null>(
     () => {
@@ -65,4 +65,4 @@ export const MinistrySelectionProvider = ({
       {children}
     </MinistrySelectionContext.Provider>
   );
-};
+}

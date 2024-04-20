@@ -1,5 +1,6 @@
 "use client";
-import { useCurrentMinistry } from "@/hooks/useCurrentMinistry";
+
+import useCurrentMinistry from "@/hooks/useCurrentMinistry";
 
 export default function Services() {
   const { selectedMinistry } = useCurrentMinistry();

@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ExpandMore } from "@mui/icons-material";
-import { useCurrentMinistry } from "@/hooks/useCurrentMinistry";
+import useCurrentMinistry from "@/hooks/useCurrentMinistry";
 
 interface HeaderPages {
   route: string;
