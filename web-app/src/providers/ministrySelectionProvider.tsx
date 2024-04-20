@@ -28,7 +28,7 @@ export const MinistrySelectionProvider = ({
 }) => {
   const [selectedMinistry, setSelectedMinistry] = useState<Ministry | null>(
     () => {
-      const storedMinistry = localStorage.getItem("selectedMinistry");
+      const storedMinistry = window.localStorage.getItem("selectedMinistry");
       return storedMinistry ? JSON.parse(storedMinistry) : null;
     }
   );
@@ -41,12 +41,12 @@ export const MinistrySelectionProvider = ({
 
   useEffect(() => {
     if (selectedMinistry) {
-      localStorage.setItem(
+      window.localStorage.setItem(
         "selectedMinistry",
         JSON.stringify(selectedMinistry)
       );
     } else {
-      localStorage.removeItem("selectedMinistry");
+      window.localStorage.removeItem("selectedMinistry");
     }
   }, [selectedMinistry]);
 
