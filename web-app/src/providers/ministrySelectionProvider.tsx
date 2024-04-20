@@ -1,4 +1,5 @@
 "use client";
+import useIsClient from "@/hooks/useIsClient";
 import {
   ReactNode,
   createContext,
@@ -26,9 +27,13 @@ export const MinistrySelectionProvider = ({
 }: {
   children: ReactNode;
 }) => {
+  const isClient = useIsClient();
   const [selectedMinistry, setSelectedMinistry] = useState<Ministry | null>(
     () => {
-      const storedMinistry = window.localStorage.getItem("selectedMinistry");
+      if (!isClient) {
+        return null;
+      }
+      const storedMinistry = localStorage.getItem("selectedMinistry");
       return storedMinistry ? JSON.parse(storedMinistry) : null;
     }
   );
@@ -40,15 +45,18 @@ export const MinistrySelectionProvider = ({
   ];
 
   useEffect(() => {
+    if (!isClient) {
+      return;
+    }
     if (selectedMinistry) {
-      window.localStorage.setItem(
+      localStorage.setItem(
         "selectedMinistry",
         JSON.stringify(selectedMinistry)
       );
     } else {
-      window.localStorage.removeItem("selectedMinistry");
+      localStorage.removeItem("selectedMinistry");
     }
-  }, [selectedMinistry]);
+  }, [isClient, selectedMinistry]);
 
   return (
     <MinistrySelectionContext.Provider
